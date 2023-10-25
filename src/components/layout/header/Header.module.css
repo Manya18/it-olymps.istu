@@ -1,0 +1,23 @@
+.header{
+    background-color: rgb(20, 8, 97);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 7px;
+}
+
+.logo{
+
+}
+
+.header a {
+    color:#fff;
+    margin: 3px;
+    transition: color 0.4s ease-in-out;
+}
+
+.header a:hover, 
+.header .active {
+    color: #c353c3;
+}
