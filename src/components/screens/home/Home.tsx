@@ -39,7 +39,8 @@ const Home = ()  => {
                 <div className={styles.groupBlocks}>
                 {dataEvent.map((dEvent) => 
                 <div className={styles.eventBlock}>
-                    <Image src={dEvent.img} width={100} height={50} alt={"event"}/>
+                    <img src={dEvent.img} alt="event" className={styles.image}/>
+                    {/* <Image src={dEvent.img} width={100%} height={50} alt={"event"}/> */}
                     <div className={styles.name}>{dEvent.name}</div>
                     <span className={styles.date}>{dEvent.date_start} - {dEvent.date_end}</span>
                 </div>
