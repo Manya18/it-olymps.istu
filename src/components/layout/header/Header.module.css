@@ -4,11 +4,13 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    font-size: 7px;
+    font-size: 2vw;
 }
 
 .logo{
-
+    max-width: 10vw;
+    max-height: 10vh;
+    
 }
 
 .header a {

@@ -10,7 +10,7 @@ const Header: FC = () => {
 
     return <div className={styles.header}>
         <Link href='/' className={styles.logo}>
-            <Image src="/logo.png" width={60} height={30} alt={"logo"}></Image>
+            <img className={styles.logo} src="/logo.png" alt={"logo"}/>
             </Link>
         <Link href='/profile'>Войти/зарегистрироваться</Link>
     </div>
