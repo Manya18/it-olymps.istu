@@ -2,5 +2,15 @@
     border: 1px solid red;
     display: flex;
     max-width: 30vw;
+    height: 70vh;
+    font-size: 2vw;
+    padding: 2vh;
+}
+
+.preview{
+    border: 1px solid rgb(179, 0, 255);
+    margin-left: 10vw;
+    /* width: 40vw;  */
     height: 100vh;
+    background-size: 100% 100%;
 }
