@@ -3,11 +3,20 @@ import styles from "./PreviewScreen.module.css"
 import { PDFExport } from "@progress/kendo-react-pdf";
 import { Button } from "@progress/kendo-react-buttons";
 import { useRef } from 'react';
+import CreateField from "../components/CreateField";
 
 const testData = [
-    {text: "text"},
-    {text: "apapa"}
-]
+    {FIO1: "text", FIO2: "text", FIO3: "text", couch1: "text", couch2: "text"},
+    {FIO1: "teaaat", FIO2: "teaaat", FIO3: "teaaat", couch1: "teaaat", couch2: "teaaat"},
+];
+// нужно, чтобы при нажатии на поле менять параметры поля
+// if (typeof document !== 'undefined') {
+//     let element = document.getElementById("test");
+//     element?.addEventListener('click', function (event) {
+//         const id = this.id;
+//         console.log(id);
+//     });      
+// }    
 
 const PreviewScreen = ()  => {
 
@@ -20,13 +29,15 @@ const PreviewScreen = ()  => {
     const pdfExportComponent = useRef(null);
     const onExportWithComponent = () => { 
         pdfExportComponent.current.save(); 
-      }; 
+    }; 
 
     return (
         <div>
             <PDFExport fileName={'test'} ref={pdfExportComponent}>
                 <div className={styles.preview} style={{backgroundImage: `url(${nameImage})`, width: `${wid}vw`}}/>
-                <div style={{ fontSize: `${fontSize}px`, color: fontColor, position: 'fixed', left: `${xpos}vw`, top: `${ypos}vh` }}>tttt</div>
+                <div id="test" style={{ fontSize: `${fontSize}px`, color: fontColor, position: 'fixed', left: `${xpos}vw`, top: `${ypos}vh` }}>tttt</div>
+                {Object.entries(testData[0]).map((d) => (
+                <CreateField id={d[0]} value={d[1]}></CreateField>))}
             </PDFExport>
             <Button className={styles.export} onClick={onExportWithComponent}>Экспортировать</Button>
         </div>
