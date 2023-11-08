@@ -20,7 +20,7 @@ const testData = [
 
 const PreviewScreen = ()  => {
 
-    const { nameImage, format, fontSize, fontColor, xpos, ypos} = useStore();
+    const { nameImage, format, data} = useStore();
     // для выбра формата
     let wid = 40; // для горизонтального
     // переключаемся на горизонтальную раскладку
@@ -30,14 +30,15 @@ const PreviewScreen = ()  => {
     const onExportWithComponent = () => { 
         pdfExportComponent.current.save(); 
     }; 
-
     return (
         <div>
             <PDFExport fileName={'test'} ref={pdfExportComponent}>
                 <div className={styles.preview} style={{backgroundImage: `url(${nameImage})`, width: `${wid}vw`}}/>
-                <div id="test" style={{ fontSize: `${fontSize}px`, color: fontColor, position: 'fixed', left: `${xpos}vw`, top: `${ypos}vh` }}>tttt</div>
-                {Object.entries(testData[0]).map((d) => (
-                <CreateField id={d[0]} value={d[1]}></CreateField>))}
+                {/* <div id="test" style={{ fontSize: `${fontSize}px`, color: fontColor, position: 'fixed', left: `${xpos}vw`, top: `${ypos}vh` }}>tttt</div> */}
+                {Object.entries(data).map((d) => 
+                
+                    (
+                <CreateField id={d[1][0]} value={d[1][0]} data={d[1]}></CreateField>))}
             </PDFExport>
             <Button className={styles.export} onClick={onExportWithComponent}>Экспортировать</Button>
         </div>

@@ -11,7 +11,8 @@ const useStore = create((set, get) => ({
     exportFileName: '',
     xpos: 50,
     ypos: 50,
-    data: [[]],
+    data: [],
+    idField: '',
     setNameImage: (a) => set((state) => ({ nameImage: a })),
     setParseValuesArray: (a) => set((state) => ({parseValuesArray: a})),
     setDiploms: (a) => set((state) => ({diploms: a})),
@@ -22,7 +23,8 @@ const useStore = create((set, get) => ({
     setExportFileName: (a) => set((state) => ({ exportFileName: a })),
     setXpos: (a) => set(() => ({ xpos: a })),
     setYpos: (a) => set(() => ({ ypos: a })),
-    setData: (value) => set(() => (data[value[0]]=value))
+    setData: (a) => set((state) => ({data: [...state.data, a]})),
+    setIdField: (a) => set(() => ({ idField: a }))
    }))
 
    export default useStore;

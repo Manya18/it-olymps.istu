@@ -1,13 +1,29 @@
 import styles from "./FunctionalScreen.module.css"
 import useStore from "@/components/useStore";
 import { Box, Button, FormControlLabel, Input, InputLabel, Stack, Switch } from '@mui/material';
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import CreateField from "../components/CreateField";
 
+const testData = [
+    {FIO1: "text", FIO2: "text", FIO3: "text", couch1: "text", couch2: "text"},
+    {FIO1: "teaaat", FIO2: "teaaat", FIO3: "teaaat", couch1: "teaaat", couch2: "teaaat"},
+];
 
 const FunctionalScreen = ()  => {
+    const {setNameImage, nameImage, setFormat, format, setData, data} = useStore();
+    const [idField, setIdField] = useState('');
+    const [fontSize, setFontSize] = useState("20");
+    const [fontColor, setFontColor] = useState("black");
+    const [xpos, setXpos] = useState("50");
+    const [ypos, setYpos] = useState("50");
+    
+    const idRef = useRef(idField);
+    const dataRef = useRef(data);
+    const fontSizeRef = useRef(fontSize);
+    const fontColorRef = useRef(fontColor);
+    const xposRef = useRef(xpos);
+    const yposRef = useRef(ypos);
 
-    const {setFontSize, fontSize, setFontColor, fontColor, setXpos, xpos, setYpos, ypos, setNameImage, nameImage, setFormat, format} = useStore();
-    const [checked, setChecked] = useState(false);
     function readFile(e) {
         var file = e.target.files[0];
         var reader = new FileReader();
@@ -20,6 +36,17 @@ const FunctionalScreen = ()  => {
         // получает URL файла
         reader.readAsDataURL(file);
     }
+
+    useEffect (()=> {
+        idRef.current = idField;
+        fontSizeRef.current = fontSize;
+        fontColorRef.current = fontColor;
+        xposRef.current = xpos;
+        yposRef.current = ypos;
+        dataRef.current = data;
+        console.log(data);
+    }, [[idField], [fontSize], [fontColor], [xpos], [ypos], [data]])
+    
     return(
     <>
             <Stack direction="column" className={styles.screen}>
@@ -38,6 +65,9 @@ const FunctionalScreen = ()  => {
                 <FormControlLabel checked={format} control={<Switch />} label="Вертикально/Горизонтально" onChange={(e) => setFormat(e.target.checked)} />
                 <InputLabel> Загрузить изображение </InputLabel>
                 <Input type="file" onChange={(e)=> readFile(e)}/>
+                <Input value={idField} type="text" onChange={(e) => setIdField(e.target.value)}/>
+                {/* <CreateField id={idField} value={idField}></CreateField> */}
+                <Button onClick={()=> setData([idField, fontSize, fontColor, xpos, ypos]) }>Создать поле</Button>
             </Stack>
     </>
     )
