@@ -1,3 +1,5 @@
+import { Input } from "@mui/material";
+import Feed from "./Feed";
 import styles from "./NewsFeed.module.css";
 
 const NewsFeed = ()  => {
@@ -28,14 +30,7 @@ const NewsFeed = ()  => {
            <div>
                 <b className={styles.b}>Новостная лента:</b>
                 {dataEvent.map((data) => 
-                    <div className={styles.main}>
-                    <b className={styles.headText}>{data.name}</b>
-                    <div className={styles.group}>
-                        <p className={styles.date}>{data.date_create}</p>
-                        <p className={styles.author}>{data.author}</p>
-                    </div>
-                    <p className={styles.textFeed}>{data.text}</p>
-                </div>
+                    <Feed value={data}/>
                 )}
                     
            </div>

@@ -49,6 +49,7 @@ const Home = ()  => {
                         </div>
                     )}
                 </div>
+                
                 <NewsFeed/>
                 <Footer/>
             </div>

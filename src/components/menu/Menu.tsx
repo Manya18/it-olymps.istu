@@ -31,12 +31,24 @@ const Menu = ()  => {
                         <Link href='/profile' style={{fontSize:"3vh"}}>
                             Профиль
                         </Link >
-                        <Link href='/myOlympiads' style={{fontSize:"3vh"}}>
+                        
+                        <Link href='/' style={{fontSize:"3vh"}}>
+                            Создать событие
+                        </Link>
+                        <Link href='/makeDiploms' style={{fontSize:"3vh"}}>
+                            Создать сертификаты
+                        </Link>
+                        <Link href='/' style={{fontSize:"3vh"}}>
+                            Администрирование
+                        </Link>
+
+                        {/* <Link href='/myOlympiads' style={{fontSize:"3vh"}}>
                             Мои олимпиады
                         </Link>
                         <Link href='/myDiploms' style={{fontSize:"3vh"}}>
                             Мои сертификаты
-                        </Link>
+                        </Link> */}
+
                         <Link href='/' style={{fontSize:"3vh"}}>
                             Настройки
                         </Link>

@@ -86,7 +86,7 @@ useEffect(() => {
                 <Input type="file" onChange={(e)=> readFile(e)}/>
                 <Input value={idField} type="text" onChange={(e) => setIdField(e.target.value)}/>
                 {/* <CreateField id={idField} value={idField}></CreateField> */}
-                <Button onClick={()=> setData([idField, fontSize, fontColor, xpos, ypos]) }>Создать поле</Button>
+                <Button className={styles.button} onClick={()=> setData([idField, fontSize, fontColor, xpos, ypos]) }>Создать поле</Button>
             </Stack>
     </>
     )

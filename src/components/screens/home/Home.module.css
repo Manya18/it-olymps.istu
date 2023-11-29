@@ -13,7 +13,6 @@
 }
 
 .blocksPart {
-    margin-top: 10vh;
     max-width: 60vw;
     margin-left: auto;
     margin-right: auto;
@@ -31,13 +30,11 @@
     line-height: 1vw;
     max-width: 30vw;
     margin: 5px;
-
 }
 
 .date {
     font-size: 1vw;
-    margin: 5px;
-    
+    margin: 5px;   
 }
 
 .image {
