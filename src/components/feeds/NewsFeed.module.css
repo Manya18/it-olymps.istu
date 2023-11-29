@@ -1,0 +1,32 @@
+.main {
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 15px;
+}
+
+.b {
+    font-size: 18px;
+
+}
+
+.headText {
+    font-size: 18px;
+}
+
+.date {
+    font-size: 13px;
+}
+
+.author {
+    font-size: 13px;
+    margin-left: 5px;
+    color: blue;
+}
+
+.group {
+    display: flex;
+}
+
+.textFeed {
+    font-size: 16px;
+}

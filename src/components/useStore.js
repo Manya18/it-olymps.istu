@@ -13,6 +13,7 @@ const useStore = create((set, get) => ({
     ypos: 50,
     data: [],
     idField: '',
+    currentId: '',
     setNameImage: (a) => set((state) => ({ nameImage: a })),
     setParseValuesArray: (a) => set((state) => ({parseValuesArray: a})),
     setDiploms: (a) => set((state) => ({diploms: a})),
@@ -24,7 +25,8 @@ const useStore = create((set, get) => ({
     setXpos: (a) => set(() => ({ xpos: a })),
     setYpos: (a) => set(() => ({ ypos: a })),
     setData: (a) => set((state) => ({data: [...state.data, a]})),
-    setIdField: (a) => set(() => ({ idField: a }))
+    setIdField: (a) => set(() => ({ idField: a })),
+    setCurrentId: (a) => set(() => ({ currentId: a }))
    }))
 
    export default useStore;

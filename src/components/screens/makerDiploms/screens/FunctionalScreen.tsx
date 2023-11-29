@@ -10,7 +10,7 @@ const testData = [
 ];
 
 const FunctionalScreen = ()  => {
-    const {setNameImage, nameImage, setFormat, format, setData, data} = useStore();
+    const {setNameImage, nameImage, setFormat, format, setData, data, currentId} = useStore();
     const [idField, setIdField] = useState('');
     const [fontSize, setFontSize] = useState("20");
     const [fontColor, setFontColor] = useState("black");
@@ -23,6 +23,25 @@ const FunctionalScreen = ()  => {
     const fontColorRef = useRef(fontColor);
     const xposRef = useRef(xpos);
     const yposRef = useRef(ypos);
+
+    console.log(data.length);
+    // // async function findData() {
+useEffect(() => {
+
+        for(let i=0; i<data.length; i++) {
+        // data.forEach((element: any) => {
+            if(data[i][0]===currentId)
+            {
+                console.log("ifffffff")
+                setFontSize(data[i][1]);
+                setFontColor(data[i][2]);
+                setXpos(data[i][3]);
+                setYpos(data[i][4]);
+                break;
+            }
+            console.log("elem", data[i]);
+        }}, [])
+    // // }
 
     function readFile(e) {
         var file = e.target.files[0];

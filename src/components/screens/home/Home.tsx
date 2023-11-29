@@ -1,6 +1,9 @@
 import Layout from "@/components/layout/Layout";
 import Image from "next/image";
 import styles from "./Home.module.css";
+import NewsFeed from "@/components/feeds/NewsFeed";
+import Footer from "@/components/footer/Footer";
+import Link from "next/link";
 
 const Home = ()  => {
     const dataEvent = [
@@ -34,7 +37,7 @@ const Home = ()  => {
             <div className={styles.blocksPart}> 
             <div className={styles.heading}>
                 <span>Ближайшие события</span>
-                <span className={styles.date}>Календарь мероприятий</span>
+                <Link href='/calender' className={styles.calender}>Календарь мероприятий</Link>
             </div>
                 <div className={styles.groupBlocks}>
                 {dataEvent.map((dEvent) => 
@@ -46,6 +49,8 @@ const Home = ()  => {
                 </div>
                 )}
                 </div>
+                <NewsFeed/>
+                <Footer/>
             </div>
         </Layout>
     )
