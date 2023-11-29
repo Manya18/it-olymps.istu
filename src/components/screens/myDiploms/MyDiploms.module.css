@@ -1,0 +1,36 @@
+.heading{
+    font-size: 200%;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.blocksPart {
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.diplomBlock {
+    display: flex;
+    flex-direction: column;
+    max-width: 18vw;
+    padding-right: 2vw;
+}
+
+.image {
+    max-width: 100%; 
+    max-height: 100%;
+}
+
+.groupBlocks {
+    display: flex;
+    justify-content: center;
+}
+
+.name {
+    font-size: 1.5vw;
+    max-width: 30vw;
+    text-align: center;
+    text-decoration: underline;
+}

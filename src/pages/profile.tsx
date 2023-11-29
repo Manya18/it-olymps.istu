@@ -3,8 +3,11 @@ import { NextPage } from "next";
 import Link from "next/link";
 
 const Profile: NextPage = () => {
-    return <Layout>Profile
-        <Link href='/makeDiploms'>MakerDiploms</Link>
+    return <Layout>
+        <Link href='/makeDiploms'>MakerDiploms</Link><br/>
+        <Link href='/userProfile'>UserProfile</Link><br/>
+        <Link href='/myOlympiads'>MyOlympiads</Link><br/>
+        <Link href='/myDiploms'>MyDiploms</Link>
     </Layout>
 }
 
