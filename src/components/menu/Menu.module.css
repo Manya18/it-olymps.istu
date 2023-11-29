@@ -1,0 +1,9 @@
+.menu{
+    position: fixed;
+    top: 10px;
+    right: 70px;
+    color: white;
+    background-color: rgb(20, 8, 97);
+    border-radius: 10px;
+    opacity: 80%;
+}

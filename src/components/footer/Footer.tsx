@@ -38,7 +38,7 @@ const Footer = ()  => {
             <b className={styles.text}>Наши партнеры:</b>
             <div className={styles.block}>
                 {data.map((d) => 
-                    <a href={d.link}>
+                    <a href={d.link} target="_blank">
                         <img src={d.src} alt={d.alt} className={styles.image}/>                    
                     </a>
                 )}

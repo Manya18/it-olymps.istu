@@ -1,6 +1,6 @@
 .groupBlocks {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .heading{
@@ -21,22 +21,25 @@
 .eventBlock {
     display: flex;
     flex-direction: column;
-    max-width: 20vw;
-    border: 1px solid black;
-    margin-right: 5px;
-    justify-content: center;
+    max-width: 18vw;
+    border: 1px solid black;    
 }
 
 .name {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
+    line-height: 1vw;
     max-width: 30vw;
+    margin: 5px;
+
 }
 
 .date {
     font-size: 1vw;
+    margin: 5px;
+    
 }
 
 .image {
-    width: 17vw;
-    height: 17vh;
+    width: 18vw;
+    height: 18vh;
 }
