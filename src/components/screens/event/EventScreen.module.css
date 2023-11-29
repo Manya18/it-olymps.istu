@@ -1,0 +1,30 @@
+.h2 {
+    text-align: center;
+    font-size: 6vh;
+}
+
+.p {
+    font-size: 3vh;
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.li {
+    font-size: 3vh;
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonStyle {
+    display: block;
+    margin: auto;
+    background-color: rgb(20, 8, 97);
+    color: aliceblue;
+}
+
+.buttonStyle:hover {
+    background-color: rgb(18, 10, 73);
+    color: aliceblue;
+}

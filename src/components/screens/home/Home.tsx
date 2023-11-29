@@ -4,8 +4,9 @@ import styles from "./Home.module.css";
 import NewsFeed from "@/components/feeds/NewsFeed";
 import Footer from "@/components/footer/Footer";
 import Link from "next/link";
+import { NextPage } from "next";
 
-const Home = ()  => {
+const Home: NextPage = () => {
     const dataEvent = [
     {
         contest_id: "1",
@@ -40,14 +41,16 @@ const Home = ()  => {
                     <Link href='/calender' className={styles.calender}>Календарь мероприятий</Link>
                 </div>
                 <div className={styles.groupBlocks}>
-                    {dataEvent.map((dEvent) => 
-                        <div className={styles.eventBlock}>
-                            <img src={dEvent.img} alt="event" className={styles.image}/>
-                            {/* <Image src={dEvent.img} width={100%} height={50} alt={"event"}/> */}
-                            <div className={styles.name}>{dEvent.name}</div>
-                            <span className={styles.date}>{dEvent.date_start} - {dEvent.date_end}</span>
-                        </div>
-                    )}
+                {dataEvent.map((dEvent) => 
+                <div className={styles.eventBlock}>
+                    <Link href='/event'>
+                    <img src={dEvent.img} alt="event" className={styles.image}/>
+                    </Link><br/>
+                    {/* <Image src={dEvent.img} width={100%} height={50} alt={"event"}/> */}
+                    <div className={styles.name}>{dEvent.name}</div>
+                    <span className={styles.date}>{dEvent.date_start} - {dEvent.date_end}</span>
+                </div>
+                )}
                 </div>
                 
                 <NewsFeed/>
