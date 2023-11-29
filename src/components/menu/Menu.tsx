@@ -37,12 +37,12 @@ const Menu = ()  => {
                         <Link href='/myDiploms' style={{fontSize:"3vh"}}>
                             Мои сертификаты
                         </Link>
-                        <div style={{fontSize:"3vh"}}>
+                        <Link href='/' style={{fontSize:"3vh"}}>
                             Настройки
-                        </div>
-                        <div style={{fontSize:"3vh"}}>
+                        </Link>
+                        <Link href='/' style={{fontSize:"3vh"}}>
                             Выход
-                        </div>
+                        </Link>
                     </div>
                 </List>
             </Collapse>
