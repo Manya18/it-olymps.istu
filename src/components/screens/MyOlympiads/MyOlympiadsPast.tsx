@@ -7,8 +7,8 @@ import { useState } from 'react';
 
 
 const MyOlympiadsPast = () => {
-    const [open1, setOpen1] = useState(true);
-    const [open2, setOpen2] = useState(true);
+    const [open1, setOpen1] = useState(false);
+    const [open2, setOpen2] = useState(false);
 
     const handleClick1 = () => {
         setOpen1(!open1);
@@ -45,6 +45,10 @@ const MyOlympiadsPast = () => {
                 </ListItem>
                 </List>
             </Collapse>
+            <ListItem  onClick={handleClick1} sx={{width:"13vw"}} className={styles.item}>
+                <ListItemText primary="Ноябрь 2023"/>
+                {open1 ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
         </List>
     )
 }

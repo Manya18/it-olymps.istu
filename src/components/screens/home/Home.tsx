@@ -37,7 +37,7 @@ const Home: NextPage = () => {
         <Layout>
             <div className={styles.blocksPart}> 
                 <div className={styles.heading}>
-                    <span>Ближайшие события</span>
+                    <div className={styles.headText}>Ближайшие события:</div>
                     <Link href='/calender' className={styles.calender}>Календарь мероприятий</Link>
                 </div>
                 <div className={styles.groupBlocks}>

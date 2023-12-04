@@ -4,8 +4,8 @@ import { Button, Input, InputLabel, MenuItem, Select, TextField } from '@mui/mat
 
 const UserProfile = () => {
     const userData = {
-        surname: "Иванов",
-        name: "Иван",
+        surname: "Андреев",
+        name: "Никита",
         patronymic: "Иванович",
         country: 1,
         region: 18,
@@ -16,7 +16,6 @@ const UserProfile = () => {
     }
     return (
             <div className={styles.blocksPart}> 
-                <div className={styles.heading}>Профиль</div>
                 <img src="/profile-photo.png" alt="profile photo" className={styles.image}/>
                 <div className={styles.name}>{userData.surname + ' ' + userData.name + ' ' + userData.patronymic}</div>
                 <center>

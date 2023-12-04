@@ -28,7 +28,7 @@ const NewsFeed = ()  => {
 ]
     return (
            <div>
-                <b className={styles.b}>Новостная лента:</b>
+                <div className={styles.b}>Новостная лента:</div>
                 {dataEvent.map((data) => 
                     <Feed value={data}/>
                 )}

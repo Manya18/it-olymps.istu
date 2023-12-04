@@ -35,7 +35,7 @@ const Footer = ()  => {
 ]
     return (
         <div className={styles.footer}>
-            <b className={styles.text}>Наши партнеры:</b>
+            <div className={styles.text}>Наши партнеры:</div>
             <div className={styles.block}>
                 {data.map((d) => 
                     <a href={d.link} target="_blank">

@@ -12,6 +12,7 @@
 }
 
 .image {
+    margin-top: 40px;
     width: 20vw; 
     height: 40vh;
     display: block;

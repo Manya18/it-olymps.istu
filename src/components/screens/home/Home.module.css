@@ -9,7 +9,18 @@
     justify-content: space-between;
     padding-top: 5px;
     padding-bottom: 5px;
-    font-size: 20px;
+}
+
+.calender{
+    font-size: 15px;
+    color: blue;
+    text-decoration: underline;
+
+}
+
+.headText{
+    font-size: 23px;
+    font-weight: 800;
 }
 
 .blocksPart {
@@ -19,22 +30,25 @@
 }
 
 .eventBlock {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     max-width: 18vw;
-    border: 1px solid black;    
+    border: 1px solid black;   
 }
 
 .name {
     font-size: 1.3vw;
-    line-height: 1vw;
+    line-height: 1.4vw;
     max-width: 30vw;
-    margin: 5px;
+    margin: 10px;
+    /* text-align: center; */
+    text-decoration: underline;
 }
 
 .date {
-    font-size: 1vw;
-    margin: 5px;   
+    font-size: 0.9vw;
+    margin: 10px;
+    font-weight: 700;   
 }
 
 .image {

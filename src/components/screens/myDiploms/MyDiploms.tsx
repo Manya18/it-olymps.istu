@@ -10,15 +10,15 @@ const MyDiploms = () => {
                 <div className={styles.groupBlocks}>
                     <div className={styles.diplomBlock}>
                         <img src="/diplom.png" alt="diplom" className={styles.image}/>
-                        <a className={styles.name} href="/diplom.png" download>certificate.pdf</a>
+                        <a className={styles.name} href="/diplom.png" download>diplom1.png</a>
                     </div>
                     <div className={styles.diplomBlock}>
                         <img src="/diplom.png" alt="diplom" className={styles.image}/>
-                        <div className={styles.name}>certificate.pdf</div>
+                        <div className={styles.name}>diplom2.png</div>
                     </div>
                     <div className={styles.diplomBlock}>
                         <img src="/diplom.png" alt="diplom" className={styles.image}/>
-                        <div className={styles.name}>certificate.pdf</div>
+                        <div className={styles.name}>diplom3.png</div>
                     </div>
                 </div>
             </div>

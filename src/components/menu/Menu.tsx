@@ -22,7 +22,7 @@ const Menu = ()  => {
     return (
         <div className={styles.menu}>
             <ListItemButton onClick={handleClick}>
-                <p>Иванов Иван</p>
+                <p>Петров Иван</p>
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
@@ -32,7 +32,7 @@ const Menu = ()  => {
                             Профиль
                         </Link >
                         
-                        <Link href='/' style={{fontSize:"3vh"}}>
+                        {/* <Link href='/' style={{fontSize:"3vh"}}>
                             Создать событие
                         </Link>
                         <Link href='/makeDiploms' style={{fontSize:"3vh"}}>
@@ -40,14 +40,14 @@ const Menu = ()  => {
                         </Link>
                         <Link href='/' style={{fontSize:"3vh"}}>
                             Администрирование
-                        </Link>
+                        </Link> */}
 
-                        {/* <Link href='/myOlympiads' style={{fontSize:"3vh"}}>
+                        <Link href='/myOlympiads' style={{fontSize:"3vh"}}>
                             Мои олимпиады
                         </Link>
                         <Link href='/myDiploms' style={{fontSize:"3vh"}}>
                             Мои сертификаты
-                        </Link> */}
+                        </Link>
 
                         <Link href='/' style={{fontSize:"3vh"}}>
                             Настройки
