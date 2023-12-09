@@ -1,12 +1,9 @@
-import Layout from "@/components/layout/Layout";
-import UserProfile from "@/components/screens/userProfile/UserProfile";
+import Profile from "@/components/screens/userProfile/Profile";
 import { NextPage } from "next";
 import Link from "next/link";
 
-const Profile: NextPage = () => {
-    return <Layout>
-        <UserProfile/>
-    </Layout>
+const Profil: NextPage = () => {
+    return <Profile/>
 }
 
-export default Profile;
+export default Profil;

@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import styles from "./UserProfile.module.css";
 import { Button, Input, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { useState } from "react";
 
 const UserProfile = () => {
     const userData = {
@@ -12,8 +13,11 @@ const UserProfile = () => {
         city: "Ижевск",
         study_place: "ИжГТУ",
         grade: 3,
+        rolle: "Участник",
         tshirt_size: 3
     }
+    const [rolle, setRolle] = useState(true);
+
     return (
             <div className={styles.blocksPart}> 
                 <img src="/profile-photo.png" alt="profile photo" className={styles.image}/>
@@ -27,7 +31,6 @@ const UserProfile = () => {
                         <MenuItem value={1}>Россия</MenuItem>
                         <MenuItem value={2}>Казахстан</MenuItem>
                     </TextField>
-
                     
                     <TextField id="region" select label="Регион" defaultValue={userData.region} sx={{m:2}}>
                         <MenuItem value={16}>Республика Татарстан</MenuItem>
@@ -39,6 +42,7 @@ const UserProfile = () => {
                     <TextField id="study_place" label="Место учебы" defaultValue={userData.study_place} sx={{m:2, width: 150}}/>
                     <TextField id="grade" label="Класс/курс" defaultValue={userData.grade} sx={{m:2, width: 150}}/><br/>
 
+                    <TextField required id="rolle" label="Роль" defaultValue={userData.rolle} sx={{m:2, width: 150}}/>
                     <TextField id="tshirt_size" select label="Размер футболки" defaultValue={userData.tshirt_size} sx={{ width: 150, m:2 }}>
                         <MenuItem value={0}>XS</MenuItem>
                         <MenuItem value={1}>S</MenuItem>
