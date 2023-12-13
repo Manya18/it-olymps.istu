@@ -18,7 +18,7 @@ const Header: FC = () => {
         <ImportantDevicesIcon sx={{fontSize: "4vw", marginLeft:"10px"}} />
         </Link>
         <Menu/>
-        <Link href='/profile' ><AccountCircleOutlinedIcon sx={{fontSize: "4vw", marginRight:"10px"}} /></Link>
+        <Link href='/login' ><AccountCircleOutlinedIcon sx={{fontSize: "4vw", marginRight:"10px"}} /></Link>
     </div>
 }
 

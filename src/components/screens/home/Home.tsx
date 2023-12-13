@@ -5,8 +5,43 @@ import NewsFeed from "@/components/feeds/NewsFeed";
 import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import { NextPage } from "next";
+import axios from "axios";
+import useStore from "@/components/useStore";
 
 const Home: NextPage = () => {
+    // const {role, setRole} = useStore();
+
+    // axios({
+    //     method: 'get',
+    //     url: 'http://localhost:8080/profile/api/v1/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6',
+    //     data: {
+    //       userId: 'ea4aa5d7-69ff-4bb2-a066-22be78b1dff6',
+    //     }
+    //   });
+    
+    // axios.get('http://localhost:8080/api/v1/profile/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6')
+    // .then(response => {
+    //     console.log(response.data);
+    // })
+    // .catch(error => {
+    //     console.log(error);
+    // });
+
+    // fetch(`http://localhost:8080/api/v1/profile/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6`)
+    //     .then(response => response.json())
+    //     .then(data => console.log(data));
+
+    // axios
+    //      .get('http://localhost:8080/profile/api/v1/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6')
+    //      .then((response) => {
+    //         console.log(response.data);
+    //      })
+    //      .catch((err) => {
+    //         console.log(err);
+    //      });
+    
+    // console.log(role);
+
     const dataEvent = [
     {
         contest_id: "1",
@@ -42,14 +77,16 @@ const Home: NextPage = () => {
                 </div>
                 <div className={styles.groupBlocks}>
                 {dataEvent.map((dEvent) => 
-                <div className={styles.eventBlock}>
-                    <Link href='/event'>
-                    <img src={dEvent.img} alt="event" className={styles.image}/>
-                    </Link><br/>
-                    {/* <Image src={dEvent.img} width={100%} height={50} alt={"event"}/> */}
-                    <div className={styles.name}>{dEvent.name}</div>
-                    <span className={styles.date}>{dEvent.date_start} - {dEvent.date_end}</span>
-                </div>
+                <Link href={`/${dEvent.contest_id}`}>
+                    <div className={styles.eventBlock}>
+                        
+                        <img src={dEvent.img} alt="event" className={styles.image}/>
+                        <br/>
+                        {/* <Image src={dEvent.img} width={100%} height={50} alt={"event"}/> */}
+                        <div className={styles.name}>{dEvent.name}</div>
+                        <span className={styles.date}>{dEvent.date_start} - {dEvent.date_end}</span>
+                    </div>
+                </Link>
                 )}
                 </div>
                 
