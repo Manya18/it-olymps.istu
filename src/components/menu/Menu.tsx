@@ -26,7 +26,7 @@ const MenuUser = ()  => {
         <><Link href='/profile' style={{ fontSize: "3vh" }}>
             Профиль
         </Link>
-        <Link href='/' style={{fontSize:"3vh"}}>
+        <Link href='/createEvent' style={{fontSize:"3vh"}}>
             Создать событие
         </Link>
         <Link href='/makeDiploms' style={{fontSize:"3vh"}}>
@@ -48,7 +48,7 @@ const Menu = ()  => {
 ]
 
     const [open, setOpen] = useState(false);
-    const [rolle, setRolle] = useState(true);
+    const [rolle, setRolle] = useState(false);
     const handleClick = () => {
         setOpen(!open);
     };

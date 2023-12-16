@@ -1,0 +1,39 @@
+.heading {
+    font-size: 220%;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.blocksPart {
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nameFieldBlock {
+    display: flex;
+}
+
+.nameBlock {
+    width: 20vw;
+    border: 1px solid black;
+    font-size: 180%;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.fieldBlock {
+    width: 40vw;
+    border: 1px solid black;
+}
+
+.buttonStyle {
+    background-color: rgb(20, 8, 97);
+    color: aliceblue;
+}
+
+.buttonStyle:hover {
+    background-color: rgb(18, 10, 73);
+    color: aliceblue;
+}
