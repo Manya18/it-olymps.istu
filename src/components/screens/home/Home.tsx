@@ -51,7 +51,7 @@ const Home: NextPage = () => {
             setItems(items);
         }
     }, []);
-
+    console.log(items)
     //запрос постов
     const getPostsData = () => {
         axios.get('http://localhost:8080/api/v1/posts?page=0&onPage=5')

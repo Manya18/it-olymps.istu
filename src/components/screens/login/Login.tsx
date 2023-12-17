@@ -22,6 +22,7 @@ const loginWindow = () => {
     const [valid, setValid] = useState(false);
     const {role, setRole} = useStore();
     const logIn = () => {
+        console.log(email, password)
         if(email==='admin@admin.ru' && password ==='admin' || email==='user@user.ru' && password ==='user'){
            axios.post(`http://localhost:8080/api/v1/user/signin?email=${email}&password=${password}`, {
                 headers: {
@@ -46,7 +47,7 @@ const loginWindow = () => {
         }
         else {
             setValid(true);
-            console.log('else',valid)
+            console.log('else', valid)
         }
 
     }
@@ -56,13 +57,14 @@ const loginWindow = () => {
                 <div className={styles.header}>Вход</div><br/>
                 <div className={styles.question}>Ещё не зарегистрированы?</div>
                 <Link href='' className={styles.link} onClick={() => setLoginWnd(false)}>Зарегистрироваться</Link><br/>
-                <TextField id='login' label="Электронная почта" color="info" InputProps={{style: {background: "white"}}} sx={{m:1, width: 300}}/><br/>
+                <TextField id='login' label="Электронная почта" color="info" InputProps={{style: {background: "white"}}} onChange={(e)=>{console.log(e.target.value); setEmail(e.target.value)}} sx={{m:1, width: 300}}/><br/>
                 <FormControl style={{background: "white"}} sx={{ m: 1, width: 300 }} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
+                    <InputLabel htmlFor="outlined-adornment-password" >Пароль</InputLabel>
                     <OutlinedInput
                         inputProps={{style: {background: "white"}}}
                         id="outlined-adornment-password"
                         type={showPassword ? 'text' : 'password'}
+                        onChange={(e)=>{console.log(e.target.value); setPassword(e.target.value)}}
                         endAdornment={
                             <InputAdornment position="end" style={{background: "white"}}>
                                 <IconButton
