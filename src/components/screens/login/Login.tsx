@@ -6,6 +6,8 @@ import email from "email.png"
 import password from "password.png"
 import { useState } from "react";
 import useStore from "@/components/useStore";
+import axios from "axios";
+import React from "react";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -13,11 +15,24 @@ const Login = () => {
     const [valid, setValid] = useState(false);
     const {role, setRole} = useStore();
     const logIn = () => {
-        if(email==='example@test.ru' && password ==='kjhgfghuiop' || email==='email@test.ru' && password ==='poiuyt'){
-            fetch(`http://localhost:8080/api/v1/user/signin?email=${email}&password=${password}`)
-            .then(response => { 
-                    if(response.ok) window.location.href='/'
-                    else console.log(response)//
+        if(email==='admin@admin.ru' && password ==='admin' || email==='user@user.ru' && password ==='user'){
+           axios.post(`http://localhost:8080/api/v1/user/signin?email=${email}&password=${password}`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => 
+                { 
+                    if(response) 
+                    {
+                        window.location.href='/';
+                        console.log(response.data)
+                        //запись в куки
+                        localStorage.setItem('userId', response.data.userId);
+                        localStorage.setItem('role', response.data.role);
+                        localStorage.getItem('role');
+                    }
+                    else console.log(response)
                 })
                 console.log('if', valid)
                 setRole('admin');
@@ -29,6 +44,7 @@ const Login = () => {
 
     }
     
+
     console.log(valid)
     return (
         <Box className={styles.w}>

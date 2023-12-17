@@ -2,6 +2,7 @@ import Layout from "@/components/layout/Layout";
 import styles from "./UserProfile.module.css";
 import { Button, Input, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { useState } from "react";
+import axios from "axios";
 
 const UserProfile = () => {
     const userData = {
@@ -13,11 +14,29 @@ const UserProfile = () => {
         city: "Ижевск",
         study_place: "ИжГТУ",
         grade: 3,
-        rolle: "Участник",
+        role: "Участник",
         tshirt_size: 3
     }
-    const [rolle, setRolle] = useState(true);
+    const [role, setRole] = useState(true);
 
+    async function putData () {
+        const res = await axios.put(`http://localhost:8080/api/v1/profile/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6`, {
+            "id": "ea4aa5d7-69ff-4bb2-a066-22be78b1dff6",
+            "email": "admin@admin.ru",
+            "name": "Игорь",
+            "surname": "Андреев",
+            "patronymic": "Иванович",
+            "country": "Россия",
+            "region": "Удмуртия",
+            "city": "Ижевск",
+            "studyPlace": "ИжГТУ",
+            "grade": "3",
+            "tshirtSize": "S"
+      });
+        console.log(res.data.json)
+    }
+    
+                
     return (
             <div className={styles.blocksPart}> 
                 <img src="/profile-photo.png" alt="profile photo" className={styles.image}/>
@@ -42,7 +61,7 @@ const UserProfile = () => {
                     <TextField id="study_place" label="Место учебы" defaultValue={userData.study_place} sx={{m:2, width: 150}}/>
                     <TextField id="grade" label="Класс/курс" defaultValue={userData.grade} sx={{m:2, width: 150}}/><br/>
 
-                    <TextField required id="rolle" label="Роль" defaultValue={userData.rolle} sx={{m:2, width: 150}}/>
+                    <TextField required id="rolle" label="Роль" defaultValue={userData.role} sx={{m:2, width: 150}}/>
                     <TextField id="tshirt_size" select label="Размер футболки" defaultValue={userData.tshirt_size} sx={{ width: 150, m:2 }}>
                         <MenuItem value={0}>XS</MenuItem>
                         <MenuItem value={1}>S</MenuItem>
@@ -52,7 +71,7 @@ const UserProfile = () => {
                         <MenuItem value={5}>XXL</MenuItem>
                     </TextField><br/><br/>
 
-                    <Button className={styles.buttonStyle}>Сохранить</Button>
+                    <Button className={styles.buttonStyle} onClick={()=> putData()}>Сохранить</Button>
                 </center>
             </div>
     )

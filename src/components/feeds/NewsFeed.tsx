@@ -1,8 +1,10 @@
 import { Input } from "@mui/material";
 import Feed from "./Feed";
 import styles from "./NewsFeed.module.css";
+import axios from "axios";
+import { useEffect } from "react";
 
-const NewsFeed = ()  => {
+const NewsFeed = (postsData: any[])  => {
     const dataEvent = [
     {
         feed_id: "1",
@@ -26,10 +28,12 @@ const NewsFeed = ()  => {
         author: "Данил Бугаков"
     }
 ]
+console.log(postsData, dataEvent)
+   
     return (
            <div>
                 <div className={styles.b}>Новостная лента:</div>
-                {dataEvent.map((data) => 
+                {dataEvent.map((data: any) => 
                     <Feed value={data}/>
                 )}
                     

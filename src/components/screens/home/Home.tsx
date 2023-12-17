@@ -6,10 +6,11 @@ import Footer from "@/components/footer/Footer";
 import Link from "next/link";
 import { NextPage } from "next";
 import axios from "axios";
-import useStore from "@/components/useStore";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
     // const {role, setRole} = useStore();
+    const [data, setData] = useState();
 
     // axios({
     //     method: 'get',
@@ -39,9 +40,35 @@ const Home: NextPage = () => {
     //      .catch((err) => {
     //         console.log(err);
     //      });
-    
-    // console.log(role);
 
+    //это для получения куки
+    const [items, setItems] = useState('');
+
+    useEffect(() => {
+        const items = localStorage.getItem('role');
+        console.log(items)
+        if (items) {
+            setItems(items);
+        }
+    }, []);
+
+    //запрос постов
+    const getData = () => {
+        axios.get('http://localhost:8080/api/v1/posts?page=0&onPage=5')
+            .then((response) => {
+                setData(response.data);
+                console.log(response.data);
+                
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    } 
+    useEffect(() => {
+        getData();
+    }, [])
+
+    
     const dataEvent = [
     {
         contest_id: "1",
@@ -90,11 +117,12 @@ const Home: NextPage = () => {
                 )}
                 </div>
                 
-                <NewsFeed/>
+                <NewsFeed value={data}/>
                 <Footer/>
             </div>
         </Layout>
     )
 }
+
 
 export default Home;
