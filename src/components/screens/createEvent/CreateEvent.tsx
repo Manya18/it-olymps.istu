@@ -59,7 +59,7 @@ const CreateEvent = () => {
                     />
                     <InputLabel> Загрузить изображение </InputLabel>
                     <Input type="file" onChange={(e)=> readFile(e)}/><br/><br/>
-                    <Button className={styles.buttonStyle}>Сохранить</Button>
+                    <Button className={styles.buttonStyle}>Создать</Button>
                 </center>
             </div>
         </Layout>
