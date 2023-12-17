@@ -53,7 +53,7 @@ const Home: NextPage = () => {
     }, []);
 
     //запрос постов
-    const getData = () => {
+    const getPostsData = () => {
         axios.get('http://localhost:8080/api/v1/posts?page=0&onPage=5')
             .then((response) => {
                 setData(response.data);
@@ -65,7 +65,7 @@ const Home: NextPage = () => {
             });
     } 
     useEffect(() => {
-        getData();
+        getPostsData();
     }, [])
 
     

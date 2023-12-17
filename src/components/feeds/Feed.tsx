@@ -4,12 +4,12 @@ const NewsFeed = (data:any)  => {
     console.log(data)
     return (
         <div className={styles.main}>
-            <b className={styles.headText}>{data.value.name}</b>
+            <b className={styles.headText}>{data.value.title}</b>
             <div className={styles.group}>
-                <p className={styles.date}>{data.value.date_create}</p>
-                <p className={styles.author}>{data.value.author}</p>
+                <p className={styles.date}>{data.value.creared_at}</p>
+                <p className={styles.author}>{data.value.author.email}</p>
             </div>
-            <p className={styles.textFeed}>{data.value.text}</p>
+            <p className={styles.textFeed}>{data.value.content}</p>
         </div>
     )
 }
