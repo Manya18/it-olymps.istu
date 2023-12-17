@@ -1,15 +1,22 @@
-import Layout from "@/components/layout/Layout";
 import styles from "./LoginScreen.module.css";
-import { Button, Input, InputLabel, LinearProgress, MenuItem, Select, Stack, List, ListItem, ListItemText, ListItemButton, Collapse, Box} from '@mui/material';
-import user from "person.png"
-import email from "email.png"
-import password from "password.png"
+import {Box, Button, TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Link, colors} from '@mui/material';
+import {Visibility, VisibilityOff} from '@mui/icons-material';
 import { useState } from "react";
 import useStore from "@/components/useStore";
 import axios from "axios";
 import React from "react";
 
-const Login = () => {
+let loginWnd = true;
+const setLoginWnd = (bool:boolean) => {
+    loginWnd = bool;
+}
+
+const loginWindow = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [valid, setValid] = useState(false);
@@ -43,23 +50,116 @@ const Login = () => {
         }
 
     }
-    
-
-    console.log(valid)
     return (
-        <Box className={styles.w}>
-        <Stack className={styles.st} style={{flexDirection: 'row', display: 'flex'}}> 
-            <h2 className={styles.h2}>Войти</h2>
-            <h2 className={styles.h2}>Зарегистрироваться</h2>
-        </Stack>
-        <Stack>
-            <Input value={email} type='string' onChange={(e) => setEmail(e.target.value)}></Input>
-            <Input value={password} type='string' onChange={(e) => setPassword(e.target.value)}></Input>
-            <Button onClick={() => logIn()}>Войти</Button>
-            {valid && <div style={{color:'red'}}>Неверный логин или пароль</div>}
-        </Stack>
+        <Box className={styles.fieldsBlockLogin}>
+            <center>
+                <div className={styles.header}>Вход</div><br/>
+                <div className={styles.question}>Ещё не зарегистрированы?</div>
+                <Link href='' className={styles.link} onClick={() => setLoginWnd(false)}>Зарегистрироваться</Link><br/>
+                <TextField id='login' label="Электронная почта" color="info" InputProps={{style: {background: "white"}}} sx={{m:1, width: 300}}/><br/>
+                <FormControl style={{background: "white"}} sx={{ m: 1, width: 300 }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
+                    <OutlinedInput
+                        inputProps={{style: {background: "white"}}}
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end" style={{background: "white"}}>
+                                <IconButton
+                                    style={{background: "white"}}
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+            }
+            label="Пароль"
+          />
+            </FormControl><br/>
+            {valid && <div style={{color:'red', fontSize: '150%'}}>Неверный логин или пароль</div>}
+            <br/>
+            <Button className={styles.buttonStyle} onClick={() => logIn()}>Войти</Button>
+            </center>
         </Box>
     )
 }
+
+const regWindow = () => {
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword((show) => !show);
+    const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
+    const [showRepPassword, setShowRepPassword] = useState(false);
+    const handleClickShowRepPassword = () => setShowRepPassword((show) => !show);
+    const handleMouseDownRepPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+    };
+    return (
+        <Box className={styles.fieldsBlockReg}>
+            <center>
+                <div className={styles.header}>Регистрация</div><br/>
+                <div className={styles.question}>Уже зарегистрированы?</div>
+                <Link href='' className={styles.link} onClick={() => setLoginWnd(true)}>Войти</Link><br/>
+                <TextField id='login' label="Электронная почта" color="info" InputProps={{style: {background: "white"}}} sx={{m:1, width: 300}}/><br/>
+                <FormControl style={{background: "white"}} sx={{ m: 1, width: 300 }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
+                    <OutlinedInput
+                        inputProps={{style: {background: "white"}}}
+                        id="outlined-adornment-password"
+                        type={showPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end" style={{background: "white"}}>
+                                <IconButton
+                                    style={{background: "white"}}
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowPassword}
+                                    onMouseDown={handleMouseDownPassword}
+                                    edge="end"
+                                >
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+            }
+            label="Пароль"
+          />
+            </FormControl>
+            <FormControl style={{background: "white"}} sx={{ m: 1, width: 300 }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password">Повторите пароль</InputLabel>
+                    <OutlinedInput
+                        inputProps={{style: {background: "white"}}}
+                        id="outlined-adornment-password"
+                        type={showRepPassword ? 'text' : 'password'}
+                        endAdornment={
+                            <InputAdornment position="end" style={{background: "white"}}>
+                                <IconButton
+                                    style={{background: "white"}}
+                                    aria-label="toggle password visibility"
+                                    onClick={handleClickShowRepPassword}
+                                    onMouseDown={handleMouseDownRepPassword}
+                                    edge="end"
+                                >
+                                {showRepPassword ? <VisibilityOff /> : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+            }
+            label="Пароль"
+          />
+            </FormControl><br/><br/>
+            <Button className={styles.buttonStyle}>Зарегистрироваться</Button>
+            </center>
+        </Box>
+    )
+}
+
+const Login = () => {
+    return (
+        <div>{loginWnd? loginWindow():regWindow()}</div>
+    )
+}
+
 
 export default Login;

@@ -1,17 +1,52 @@
-.st
-{
-    width: 50vw;
-    height: 60vh;
-}
-.h2{
-    margin-right: 10vw;
-}
-.w{
-    width: 50vw;
-    height: 60vh;
-    margin-top: 20vh;
-    margin-left: 25 vw;
-    flex-shrink: 0;
+.fieldsBlockLogin {
+    width: 40vw;
+    height: 55vh;
     border-radius: 50px;
     background: #5A89BD;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.fieldsBlockReg {
+    width: 40vw;
+    height: 65vh;
+    border-radius: 50px;
+    background: #5A89BD;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.header {
+    padding-top: 10px;
+    color: aliceblue;
+    font-size: 300%;
+}
+
+.question {
+    color:aliceblue;
+    font-size: 150%;
+}
+
+.link {
+    color: aliceblue;
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+.buttonStyle {
+    background-color: rgb(20, 8, 97);
+    color: aliceblue;
+}
+
+.buttonStyle:hover {
+    background-color: rgb(18, 10, 73);
+    color: aliceblue;
 }
