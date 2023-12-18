@@ -1,37 +1,29 @@
 import Layout from "@/components/layout/Layout";
-import Event from "@/components/screens/event/Event";
+import Event from "@/components/screens/eventPages/EventPage";
+import axios from "axios";
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
-const dataEvent = [
-    {
-        contest_id: "1",
-        date_start: "10.10.2023",
-        date_end: "12.10.2023",
-        name: "Ежегодный хакатон по программированию",
-        info: "Предлагаем наборы заданий для изучения основ программирования. Предполагается, что обучение проходит в течение двух лет.",
-        img: "/event_img.jpg"
-    },
-    {
-        contest_id: "2",
-        date_start: "10.10.2023",
-        date_end: "12.10.2023",
-        name: "Ежегодный хакатон по разработке",
-        info: "Предлагаем наборы заданий для изучения основ программирования. Предполагается, что обучение проходит в течение двух лет.",
-        img: "/event_img.jpg"
-    },
-    {
-        contest_id: "3",
-        date_start: "10.10.2023",
-        date_end: "12.10.2023",
-        name: "Новый хакатон по разработке",
-        info: "Предлагаем наборы заданий для изучения основ программирования. Предполагается, что обучение проходит в течение двух лет.",
-        img: "/event_img.jpg"
-    }
-]
+const eventPage = () => {
+    const [eventData, setEventData] = useState(); 
 
-const eventPage = ({event}) => {
+    // var loc = window.location.pathname;
+    // console.log(loc)
+    // const getEventData = () => {
+        axios.get(`http://localhost:8080/api/v1/events/e9ee306f-51a2-4542-ac86-1c6fcc5d756e`)
+        .then((response) => {
+            setEventData(response.data);
+            console.log(response.data)
+        })
+        .catch((err: any) => {
+            console.log(err);
+        });
+    // } 
+    // useEffect(() => {
+    //     getEventData();
+    // }, [])
     return (
-        <Event event={event}/>
+        <Event event={eventData}/>
     )
 }
 

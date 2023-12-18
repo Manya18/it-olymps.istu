@@ -3,7 +3,6 @@ import styles from "./Home.module.css";
 
 const Event = (data:any)  => {
     const eventData = Object.values(data)[0]
-    console.log('data', eventData,  data)
 
     const date1 = new Date(eventData.startDateTime)
     const startDateTime = `${date1.getDate()}.${date1.getMonth() + 1}.${date1.getFullYear()}`
