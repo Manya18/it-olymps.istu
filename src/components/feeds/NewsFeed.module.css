@@ -7,7 +7,6 @@
 
 .b {
     font-size: 23px;
-    padding-top: 20px;
     font-weight: 800;
 }
 
@@ -34,4 +33,37 @@
 .textFeed {
     font-size: 16px;
     text-align: justify;
+}
+
+.createPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.publish {
+    background-color: rgb(20, 8, 97);
+    color: white;
+}
+.newsLine {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttonCreate {
+    font-size: 10px;
+    background-color: rgb(20, 8, 97);
+    color: white;
+    width: 120px;
+    height: 30px;
+}
+
+.buttonCreate:hover, .publish:hover {
+    background-color: #0065b3;
 }
