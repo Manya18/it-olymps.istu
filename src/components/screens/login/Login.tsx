@@ -1,5 +1,5 @@
 import styles from "./LoginScreen.module.css";
-import {Box, Button, TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton} from '@mui/material';
+import {Box, Button, TextField, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, Modal, Typography} from '@mui/material';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
 import { useState, MouseEvent } from "react";
 import useStore from "@/components/useStore";
@@ -96,6 +96,13 @@ const Login = () => {
         const handleMouseDownRepPassword = (event: MouseEvent<HTMLButtonElement>) => {
             event.preventDefault();
         };
+        const [open, setOpen] = useState(false);
+        const handleOpen = () => {
+          setOpen(true);
+        };
+        const handleClose = () => {
+          setOpen(false);
+        };
         return (
             <div className={styles.fieldsBlockReg}>
                 <center>
@@ -147,8 +154,17 @@ const Login = () => {
                 label="Пароль"
               />
                 </FormControl><br/><br/>
-                <Button className={styles.buttonStyle}>Зарегистрироваться</Button>
+                <Button className={styles.buttonStyle} onClick={handleOpen}>Зарегистрироваться</Button>
                 </center>
+                <Modal
+                open={open}                >
+                <Box sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 350, height: 75, bgcolor: 'background.paper',}}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" textAlign='center'>
+                        Вы успешно зарегистрированы!
+                    </Typography>
+                    <center><Button className={styles.buttonStyle} onClick={handleClose}>ОК</Button></center>
+                </Box>
+                </Modal>
             </div>
         )
     }

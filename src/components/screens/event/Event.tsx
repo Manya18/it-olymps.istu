@@ -1,10 +1,17 @@
 import Layout from "@/components/layout/Layout";
 import styles from "./EventScreen.module.css";
-import { Button, Input, InputLabel, LinearProgress, MenuItem, Select, Stack, List, ListItem, ListItemText, ListItemButton, Collapse, Link} from '@mui/material';
-import Login from "../login/Login";
+import { Button, Box, Modal, Typography} from '@mui/material';
+import {useState} from 'react'
 
 
 const Event = ({event}) => {
+    const [open, setOpen] = useState(false);
+        const handleOpen = () => {
+          setOpen(true);
+        };
+        const handleClose = () => {
+          setOpen(false);
+        };
     return (
         <Layout>
             <br/>  <br/>   <br/>  <br/>           
@@ -24,9 +31,18 @@ const Event = ({event}) => {
                 <li className={styles.li}>Презентация проектов и награждение победителей</li>
             </ul>
             <br/> <p className={styles.p}>Не упустите шанс проявить свой потенциал и встретить интересных людей! Ждем вас на нашем хакатоне.</p> <br/>
-            <Button className={styles.buttonStyle}>зарегистрироваться</Button>
-
+            <Button className={styles.buttonStyle} onClick={handleOpen}>зарегистрироваться</Button>
+            <Modal
+                open={open}                >
+                <Box sx={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 350, height: 75, bgcolor: 'background.paper'}}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" textAlign='center'>
+                        Вы успешно зарегистрированы!
+                    </Typography>
+                    <center><Button className={styles.buttonStyle} onClick={handleClose}>ОК</Button></center>
+                </Box>
+                </Modal>
         </Layout>
+        
     )
 }
 
