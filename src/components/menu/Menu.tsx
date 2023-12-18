@@ -1,8 +1,20 @@
 import { ExpandLess, ExpandMore, StarBorder } from "@mui/icons-material";
 import { ListItemButton, ListItemIcon, ListItemText, Collapse, List } from "@mui/material";
 import styles from "./Menu.module.css"
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+
+let user = {
+    surname: "", 
+    name: "",
+    patronymic: "",
+    country: "",
+    region: "",
+    city: "",
+    study_place: "",
+    grade: "",
+    tshirt_size: ""
+    };
 
 const MenuUser = ()  => {
     return(
@@ -19,7 +31,7 @@ const MenuUser = ()  => {
             Выход
         </Link></>
     )
- }
+}
 
  const MenuAdmin = ()  => {
     return(
@@ -39,30 +51,71 @@ const MenuUser = ()  => {
  }
 
 const Menu = ()  => {
-    const data = [
-    {
-        alt: "Иннотех",
-        src: "/innotech.png", 
-        link: "https://inno.tech/ru/"
-    },
-]
-
+    
     const [open, setOpen] = useState(false);
-    const [rolle, setRolle] = useState(false);
     const handleClick = () => {
         setOpen(!open);
     };
 
+    const [userId, setUserId] = useState('');
+    const [role, setRole] = useState('');
+
+    const idRef = useRef(userId);
+    const roleRef = useRef(role);
+
+    useEffect(() => {
+        const role = localStorage.getItem('role');
+        const userId = localStorage.getItem('userId');
+        if (role) setRole(role);
+        if(userId) setUserId(userId)
+    }, []);
+
+        useEffect(() => {
+            const role = localStorage.getItem('role');
+        const userId = localStorage.getItem('userId');
+        console.log(role)
+        if (role) setRole(role);
+        if(userId) setUserId(userId)
+        }, [])
+
+
+        useEffect (()=> {
+        idRef.current = userId;
+        roleRef.current = role;
+    }, [[userId], [role]])
+
+    useEffect(() => {
+        fetch(`http://localhost:8080/api/v1/profile/${userId}`)
+        .then(response => response.json())
+        .then(data => 
+            {
+                user = {
+                    surname: data.surname,
+                    name: data.name,
+                    patronymic: data.patronymic,
+                    country: data.country,
+                    region: data.region,
+                    city: data.city,
+                    study_place: data.studyPlace,
+                    grade: data.grade,
+                    tshirt_size: data.tshirtSize
+                }
+            }
+           );
+        })
+
+        console.log('data',user)
+   
     return (
         <div className={styles.menu}>
-            <ListItemButton onClick={handleClick}>
-                <p>Петров Иван</p>
+           <ListItemButton onClick={handleClick}>
+                <p>{user.surname + ' ' + user.name}</p>
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     <div style={{ display:"flex", flexDirection:"column", padding: "8px", fontSize:"3vh"}} >
-                        {rolle ? <MenuUser/> : <MenuAdmin/>}
+                        {role === 'user' ? <MenuUser/> : <MenuAdmin/>}
                     </div>
                 </List>
             </Collapse>

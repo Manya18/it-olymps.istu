@@ -14,7 +14,6 @@ const useStore = create((set, get) => ({
     data: [],
     idField: '',
     currentId: '',
-    role: '',
     setNameImage: (a) => set((state) => ({ nameImage: a })),
     setParseValuesArray: (a) => set((state) => ({parseValuesArray: a})),
     setDiploms: (a) => set((state) => ({diploms: a})),
@@ -27,8 +26,7 @@ const useStore = create((set, get) => ({
     setYpos: (a) => set(() => ({ ypos: a })),
     setData: (a) => set((state) => ({data: [...state.data, a]})),
     setIdField: (a) => set(() => ({ idField: a })),
-    setCurrentId: (a) => set(() => ({ currentId: a })),
-    setRole: (a) => set(() => ({ role: a }))
+    setCurrentId: (a) => set(() => ({ currentId: a }))
    }))
 
    export default useStore;

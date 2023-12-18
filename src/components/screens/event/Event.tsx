@@ -2,6 +2,8 @@ import Layout from "@/components/layout/Layout";
 import styles from "./EventScreen.module.css";
 import { Button, Input, InputLabel, LinearProgress, MenuItem, Select, Stack, List, ListItem, ListItemText, ListItemButton, Collapse, Link} from '@mui/material';
 import Login from "../login/Login";
+
+
 const Event = ({event}) => {
     return (
         <Layout>
@@ -22,9 +24,7 @@ const Event = ({event}) => {
                 <li className={styles.li}>Презентация проектов и награждение победителей</li>
             </ul>
             <br/> <p className={styles.p}>Не упустите шанс проявить свой потенциал и встретить интересных людей! Ждем вас на нашем хакатоне.</p> <br/>
-            <Link href='/login'>
-                <Button className={styles.buttonStyle}>зарегистрироваться</Button>
-            </Link>
+            <Button className={styles.buttonStyle}>зарегистрироваться</Button>
 
         </Layout>
     )
