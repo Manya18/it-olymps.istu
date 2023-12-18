@@ -8,6 +8,7 @@ const NewsFeed = (postsData: any[])  => {
     const [showButton, setShowCrButton] = useState(false);
     const [titlePost, setTitlePost] = useState('');
     const [contentPost, setContentPost] = useState('');
+    console.log(postsData);
     const dataEv=Object.values(postsData)[0];
 
     const createPost =() => {
