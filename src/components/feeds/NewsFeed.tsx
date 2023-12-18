@@ -8,7 +8,6 @@ const NewsFeed = (postsData: any[])  => {
     const [showButton, setShowCrButton] = useState(false);
     const [titlePost, setTitlePost] = useState('');
     const [contentPost, setContentPost] = useState('');
-    console.log(Object.values(postsData)[0])
     const dataEv=Object.values(postsData)[0];
 
     const createPost =() => {
@@ -24,10 +23,9 @@ const NewsFeed = (postsData: any[])  => {
         let elem = document.getElementById('createPost');
         if(elem) elem.style.visibility = 'visible';
         //пост запрос
-        console.log(titlePost, contentPost)
         if(titlePost!='' && contentPost!='')
         {
-            axios.post(`http://localhost:8080/api/v1/posts`, {
+            await axios.post(`http://localhost:8080/api/v1/posts`, {
                 "title": `${titlePost}`,
                 "content": `${contentPost}`
             })
@@ -45,12 +43,10 @@ const NewsFeed = (postsData: any[])  => {
 
     useEffect(() => {
         const items = localStorage.getItem('role');
-        console.log(items)
         if (items) {
             setRole(items);
         }
     }, []);
-    console.log(role)
 
     return (
            <div>

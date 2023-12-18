@@ -12,41 +12,11 @@ const Home: NextPage = () => {
     // const {role, setRole} = useStore();
     const [data, setData] = useState();
 
-    // axios({
-    //     method: 'get',
-    //     url: 'http://localhost:8080/profile/api/v1/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6',
-    //     data: {
-    //       userId: 'ea4aa5d7-69ff-4bb2-a066-22be78b1dff6',
-    //     }
-    //   });
-    
-    // axios.get('http://localhost:8080/api/v1/profile/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6')
-    // .then(response => {
-    //     console.log(response.data);
-    // })
-    // .catch(error => {
-    //     console.log(error);
-    // });
-
-    // fetch(`http://localhost:8080/api/v1/profile/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6`)
-    //     .then(response => response.json())
-    //     .then(data => console.log(data));
-
-    // axios
-    //      .get('http://localhost:8080/profile/api/v1/ea4aa5d7-69ff-4bb2-a066-22be78b1dff6')
-    //      .then((response) => {
-    //         console.log(response.data);
-    //      })
-    //      .catch((err) => {
-    //         console.log(err);
-    //      });
-
     //это для получения куки
     const [items, setItems] = useState('');
 
     useEffect(() => {
         const items = localStorage.getItem('role');
-        console.log(items)
         if (items) {
             setItems(items);
         }
@@ -57,7 +27,6 @@ const Home: NextPage = () => {
         axios.get('http://localhost:8080/api/v1/posts?page=0&onPage=5')
             .then((response) => {
                 setData(response.data);
-                console.log(response.data);
                 
             })
             .catch((err) => {
