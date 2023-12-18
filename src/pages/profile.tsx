@@ -25,6 +25,8 @@ const Profil: NextPage = () => {
         if (role) setRole(role);
         if(userId) setUserId(userId)
     }, []);
+    useEffect(() => {
+
     fetch(`http://localhost:8080/api/v1/profile/${userId}`)
         .then(response => response.json())
         .then(data => 
@@ -43,6 +45,7 @@ const Profil: NextPage = () => {
                 }
             }
            );
+        })
 
     return <Profile value ={user}/>
 }

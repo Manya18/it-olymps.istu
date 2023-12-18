@@ -25,9 +25,11 @@ const MenuUser = ()  => {
             Мои олимпиады
         </Link><Link href='/myDiploms' style={{ fontSize: "3vh" }}>
             Мои сертификаты
-        </Link><Link href='/' style={{ fontSize: "3vh" }}>
+        </Link>
+        {/* <Link href='/' style={{ fontSize: "3vh" }}>
             Настройки
-        </Link><Link href='/' style={{ fontSize: "3vh" }}>
+        </Link> */}
+        <Link href='/login' style={{ fontSize: "3vh" }}>
             Выход
         </Link></>
     )
@@ -44,9 +46,10 @@ const MenuUser = ()  => {
         <Link href='/makeDiploms' style={{fontSize:"3vh"}}>
             Создать сертификаты
         </Link>
-        <Link href='/' style={{fontSize:"3vh"}}>
+        {/* <Link href='/' style={{fontSize:"3vh"}}>
             Администрирование
-        </Link></>
+        </Link> */}
+        </>
     )
  }
 

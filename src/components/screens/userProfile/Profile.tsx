@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import styles from "./Profile.module.css";
-import { Button, Input, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { Box, Button, Input, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { SetStateAction, useEffect, useRef, useState } from "react";
 import axios from "axios";
 
@@ -47,12 +47,12 @@ const Profile = (userData) => {
             "name": name,
             "surname": surname,
             "patronymic": patronymic,
-            "country": country,
-            "region": region,
-            "city": city,
-            "studyPlace": study_place,
-            "grade": grade,
-            "tshirtSize": tshirt_size
+            "country": "Россия",
+            "region": "Удмуртия",
+            "city": "Ижевск",
+            "studyPlace": "ИжГТУ",
+            "grade": "1",
+            "tshirtSize": "S"
       });
       if(role === 'user')
       await axios.put(`http://localhost:8080/api/v1/profile/${userId}`, {
@@ -117,11 +117,11 @@ const Profile = (userData) => {
                     </TextField>}
 
                     {!type && role === 'user' && <TextField id="region" select label="Регион" value={userdata.region} sx={{m:2, width: 150}}>
-                        <MenuItem value={'Республика Татарстан'}>Республика Татарстан</MenuItem>
+                        <MenuItem value={'Татарстан'}>Татарстан</MenuItem>
                         <MenuItem value={'Удмуртия'}>Удмуртия</MenuItem>
                     </TextField>}
                     {type && role === 'user' && <TextField id="region" select label="Регион" onChange={(e)=> {setRegion(e.target.value)}} sx={{m:2, width: 150}}>
-                        <MenuItem value={'Республика Татарстан'}>Республика Татарстан</MenuItem>
+                        <MenuItem value={'Татарстан'}>Татарстан</MenuItem>
                         <MenuItem value={'Удмуртия'}>Удмуртия</MenuItem>
                     </TextField>}
 
@@ -152,9 +152,8 @@ const Profile = (userData) => {
                     <MenuItem value={'XXL'}>XXL</MenuItem>
                 </TextField><br /><br /></>}
 
-                <Button className={styles.buttonStyle} onClick={() => setType(true)}> Изменить</Button>
+                <Button style={{marginRight: "2vw"}} className={styles.buttonStyle} onClick={() => setType(true)}> Изменить</Button>
                 <Button className={styles.buttonStyle} onClick={() => putData()}> Сохранить</Button>
-
                 </center>
             </div>
         </Layout>

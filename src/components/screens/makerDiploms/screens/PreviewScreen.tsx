@@ -36,7 +36,6 @@ const PreviewScreen = ()  => {
                 <div className={styles.preview} style={{backgroundImage: `url(${nameImage})`, width: `${wid}vw`}}/>
                 {/* <div id="test" style={{ fontSize: `${fontSize}px`, color: fontColor, position: 'fixed', left: `${xpos}vw`, top: `${ypos}vh` }}>tttt</div> */}
                 {Object.entries(data).map((d) => 
-                
                     (
                 <CreateField id={d[1][0]} value={d[1][0]} data={d[1]}></CreateField>))}
             </PDFExport>
